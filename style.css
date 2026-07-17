@@ -3,15 +3,15 @@
    ========================= */
 
 :root {
-  --bg-main: #f7f3ec;
-  --bg-alt: #ece3d7;
-  --text-main: #111111;
-  --text-muted: #555555;
-  --accent-red: #c0392b;
-  --accent-blue: #1f3a93;
-  --accent-yellow: #f1c40f;
-  --accent-dark: #222222;
-  --border-soft: #d8cbb9;
+   --bg-main: #f4f2ec;
+  --bg-alt: #e7e0d4;
+  --text-main: #151515;
+  --text-muted: #5a5550;
+  --accent-red: #d5332b;    /* vermelho mais vivo */
+  --accent-blue: #1c3d8f;   /* azul mais seco */
+  --accent-yellow: #f3c518; /* amarelo mais forte */
+  --accent-dark: #111111;
+  --border-soft: #ccbfad;
 
   --font-title: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-body: "Lato", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
