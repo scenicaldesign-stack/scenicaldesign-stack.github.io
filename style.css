@@ -1,0 +1,676 @@
+/* =========================
+   ESTILO GLOBAL
+   ========================= */
+
+:root {
+  --bg-main: #f7f3ec;
+  --bg-alt: #ece3d7;
+  --text-main: #111111;
+  --text-muted: #555555;
+  --accent-red: #c0392b;
+  --accent-blue: #1f3a93;
+  --accent-yellow: #f1c40f;
+  --accent-dark: #222222;
+  --border-soft: #d8cbb9;
+
+  --font-title: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Lato", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --container-width: 1100px;
+  --section-padding: 80px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* =========================
+   LAYOUT BASE
+   ========================= */
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.section-alt {
+  background-color: var(--bg-alt);
+}
+
+.section-header {
+  max-width: 650px;
+  margin: 0 auto 40px auto;
+  text-align: left;
+  position: relative;
+}
+
+.section-header h2 {
+  font-family: var(--font-title);
+  font-size: 28px;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.section-header p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+/* =========================
+   HEADER / NAVEGAÇÃO
+   ========================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background-color: rgba(247, 243, 236, 0.95);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(6px);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-title);
+}
+
+.logo-main {
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.logo-sub {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+}
+
+.nav a {
+  margin-left: 20px;
+  font-size: 13px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--text-main);
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background-color: var(--accent-red);
+  transition: width 0.2s ease-out;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 500px;
+  color: #ffffff;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Fundo hero (imagem estática por enquanto) */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(10%) contrast(1.05);
+  transform: scale(1.03);
+}
+
+/* Sobreposição escura */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35));
+}
+
+/* Conteúdo hero */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding-top: 80px; /* compensa o header fixo */
+}
+
+.hero-text {
+  max-width: 520px;
+}
+
+.hero-text h1 {
+  font-family: var(--font-title);
+  font-size: 40px;
+  margin: 0 0 12px;
+}
+
+.hero-text p {
+  font-size: 16px;
+  margin: 0 0 24px;
+  max-width: 440px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-tagline {
+  margin-top: 60px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.8;
+}
+
+/* =========================
+   BOTÕES
+   ========================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-family: var(--font-title);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 0;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.btn-primary {
+  background-color: var(--accent-red);
+  border-color: var(--accent-red);
+}
+
+.btn-primary:hover {
+  background-color: #9e2e23;
+  border-color: #9e2e23;
+}
+
+.btn-outline {
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn.full-width {
+  width: 100%;
+}
+
+/* =========================
+   PROJETOS
+   ========================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background-color: #fdfaf4;
+  border: 1px solid var(--border-soft);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project-image {
+  height: 190px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Imagens de exemplo (substitua depois por imagens reais se quiser) */
+.project-img-1 {
+  background-image: url("https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200");
+}
+.project-img-2 {
+  background-image: url("https://images.pexels.com/photos/2696469/pexels-photo-2696469.jpeg?auto=compress&cs=tinysrgb&w=1200");
+}
+.project-img-3 {
+  background-image: url("https://images.pexels.com/photos/37347/office-freelancer-computer-business-37347.jpeg?auto=compress&cs=tinysrgb&w=1200");
+}
+
+.project-info {
+  padding: 16px 18px 20px;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+}
+
+.project-tag {
+  color: var(--accent-red);
+}
+
+.project-location {
+  opacity: 0.8;
+}
+
+.project-card h3 {
+  font-family: var(--font-title);
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.project-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* =========================
+   CENOGRAFIA
+   ========================= */
+
+.cenografia-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.cenografia-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.step-card {
+  background-color: #f6ede0;
+  border: 1px solid var(--border-soft);
+  padding: 18px 16px 20px;
+}
+
+.step-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.circle-red {
+  background-color: var(--accent-red);
+}
+.circle-blue {
+  background-color: var(--accent-blue);
+}
+.circle-yellow {
+  background-color: var(--accent-yellow);
+}
+
+.step-card h3 {
+  font-family: var(--font-title);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 8px;
+}
+
+.step-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* =========================
+   DEPOIMENTOS
+   ========================= */
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.testimonial-card {
+  background-color: #fdfaf4;
+  border: 1px solid var(--border-soft);
+  padding: 18px 18px 20px;
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: "“";
+  position: absolute;
+  top: -15px;
+  left: 12px;
+  font-size: 42px;
+  color: var(--accent-red);
+  opacity: 0.25;
+}
+
+.testimonial-text {
+  margin: 6px 0 12px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.testimonial-author {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/* =========================
+   SOBRE
+   ========================= */
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.about-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo-inner {
+  width: 100%;
+  max-width: 320px;
+  height: 360px;
+  background:
+    linear-gradient(135deg, var(--accent-blue) 0, var(--accent-blue) 40%, transparent 40%) top left / 100% 100% no-repeat,
+    linear-gradient(315deg, var(--accent-red) 0, var(--accent-red) 45%, transparent 45%) bottom right / 100% 100% no-repeat,
+    #f7f3ec;
+  border: 1px solid var(--border-soft);
+  position: relative;
+}
+
+/* “Moldura” interna pra simular retrato */
+.about-photo-inner::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: rgba(247, 243, 236, 0.7);
+  /* Aqui você poderia usar uma imagem real:
+     background-image: url("URL_DA_SUA_FOTO");
+     background-size: cover;
+     background-position: center;
+  */
+}
+
+.about-text h2 {
+  font-family: var(--font-title);
+  font-size: 26px;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.about-text p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.about-signature {
+  margin-top: 10px;
+  font-style: italic;
+  color: var(--accent-dark);
+}
+
+/* =========================
+   CONTATO
+   ========================= */
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.contact-text h2 {
+  font-family: var(--font-title);
+  font-size: 26px;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.contact-text p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.contact-instagram a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.contact-instagram a:hover {
+  text-decoration: underline;
+}
+
+.contact-form label {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 4px;
+  border-radius: 0;
+  border: 1px solid #c9bca8;
+  background-color: #fdfaf4;
+  font-family: var(--font-body);
+  font-size: 13px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+}
+
+.contact-note {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* =========================
+   RODAPÉ
+   ========================= */
+
+.footer {
+  background-color: #151515;
+  color: #f0f0f0;
+  padding: 24px 0 10px;
+  font-size: 13px;
+}
+
+.footer-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 0 20px 8px;
+}
+
+.footer-left p {
+  margin: 0 0 4px;
+}
+
+.footer-right a {
+  display: inline-block;
+  margin-left: 16px;
+  color: #f0f0f0;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+}
+
+.footer-right a:hover {
+  color: var(--accent-yellow);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+
+@media (max-width: 920px) {
+  .nav {
+    display: none; /* simplificação: some com o menu em telas bem pequenas */
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+  .hero-text p {
+    font-size: 15px;
+  }
+
+  .projects-grid,
+  .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cenografia-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-layout,
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo-inner {
+    max-width: 260px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --section-padding: 60px;
+  }
+
+  .header-content {
+    padding: 10px 16px;
+  }
+
+  .hero-content {
+    padding-top: 70px;
+  }
+
+  .hero-text h1 {
+    font-size: 26px;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+  }
+
+  .projects-grid,
+  .testimonials-grid,
+  .cenografia-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-layout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-right a {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+}
